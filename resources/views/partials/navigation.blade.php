@@ -1,10 +1,9 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
-        <span class="navbar-brand ms-2">NexusNet</span>
+        <a href="{{ route('home') }}" class="text-decoration-none"  ><span class="navbar-brand ms-2">NexusNet</span></a>
         <div class="navbar-nav ms-auto">
-            <button class="btn btn-outline-success me-2">Sign up</button>
-            <button class="btn btn-outline-success me-2">Login</button>
+            <a href="{{ route('signup') }}"><button class="btn btn-outline-success me-2">Sign up</button></a>
+            <a href="{{ route('signin') }}"><button class="btn btn-outline-success me-2">Sign in</button></a>
         </div>
     </div>
 </nav>
-
