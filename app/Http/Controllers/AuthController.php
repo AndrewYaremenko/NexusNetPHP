@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -9,7 +10,7 @@ class AuthController extends Controller
 {
     public function getSignup()
     {
-        return view ('signup');
+        return view('signup');
     }
 
     public function postSignup(Request $request)
@@ -33,15 +34,20 @@ class AuthController extends Controller
 
     public function getSignin()
     {
-        return view ('signin');
+        return view('signin');
     }
 
     public function postSignin(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|unique:users|email|max:255',
-            'password' => 'required|alpha_dash|min:5|max:255',
+            'email' => 'required|email',
+            'password' => 'required',
         ]);
-        dd("Login accsessful!");
+
+        if (!Auth::attempt($request->only(['email', 'password']), $request->has('remember'))) {
+            return redirect()->back()->with('info', 'Could not sign you in with those details!');
+        };
+
+        return redirect()->route('home')->with('info', 'Your has been login!');
     }
 }

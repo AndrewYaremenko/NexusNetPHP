@@ -12,4 +12,4 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/signup', 'AuthController@getSignup')->name('signup');
 Route::post('/signup', 'AuthController@postSignup');
 Route::get('/signin', 'AuthController@getSignin')->name('signin');
-Route::post('/signin', 'AuthController@postSignup');
+Route::post('/signin', 'AuthController@postSignin');
