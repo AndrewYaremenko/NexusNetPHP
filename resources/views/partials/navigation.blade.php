@@ -18,7 +18,7 @@
             @if (Auth::check())
                 <a class="nav-link me-3 text-decoration-none" href="{{ route('signup') }}">{{ Auth::user()->getNameOrUsername() }}</a>
                 <a class="nav-link me-3 text-decoration-none" href="{{ route('signup') }}">Update profile</a>
-                <a class="nav-link me-3 text-decoration-none" href="{{ route('signup') }}">Sign up</a>
+                <a class="nav-link me-3 text-decoration-none" href="{{ route('signout') }}">Sign out</a>
             @else
                 <a href="{{ route('signup') }}"><button class="btn btn-outline-success me-3">Sign up</button></a>
                 <a href="{{ route('signin') }}"><button class="btn btn-outline-success me-3">Sign in</button></a>

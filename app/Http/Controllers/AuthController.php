@@ -50,4 +50,11 @@ class AuthController extends Controller
 
         return redirect()->route('home')->with('info', 'Your has been login!');
     }
+
+    public function getSignout()
+    {
+        Auth::logout();
+
+        return redirect()->route('home');
+    }
 }

@@ -9,7 +9,8 @@ Route::get('/', 'HomeController@index')->name('home');
 /**
  * Authentication
  */
-Route::get('/signup', 'AuthController@getSignup')->name('signup');
-Route::post('/signup', 'AuthController@postSignup');
-Route::get('/signin', 'AuthController@getSignin')->name('signin');
-Route::post('/signin', 'AuthController@postSignin');
+Route::get('/signup', 'AuthController@getSignup')->middleware('guest')->name('signup');
+Route::post('/signup', 'AuthController@postSignup')->middleware('guest');;
+Route::get('/signin', 'AuthController@getSignin')->middleware('guest')->name('signin');
+Route::post('/signin', 'AuthController@postSignin')->middleware('guest');
+Route::get('/signout', 'AuthController@getSignout')->name('signout');
