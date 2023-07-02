@@ -7,16 +7,16 @@
             @if (Auth::check())
                 <a class="nav-link me-3 text-decoration-none" href="{{ route('signup') }}">Timeline</a>
                 <a class="nav-link me-3 text-decoration-none" href="{{ route('signup') }}">Friends</a>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                        value="Find people">
+                <form class="d-flex" method="GET" action="{{ route('search.results') }}">
+                    <input class="form-control me-2" type="search" aria-label="Search" placeholder="Find people" name="query" value="{{ Request::input('query')}}">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             @endif
         </div>
         <div class="navbar-nav">
             @if (Auth::check())
-                <a class="nav-link me-3 text-decoration-none" href="{{ route('signup') }}">{{ Auth::user()->getNameOrUsername() }}</a>
+                <a class="nav-link me-3 text-decoration-none"
+                    href="{{ route('signup') }}">{{ Auth::user()->getNameOrUsername() }}</a>
                 <a class="nav-link me-3 text-decoration-none" href="{{ route('signup') }}">Update profile</a>
                 <a class="nav-link me-3 text-decoration-none" href="{{ route('signout') }}">Sign out</a>
             @else
